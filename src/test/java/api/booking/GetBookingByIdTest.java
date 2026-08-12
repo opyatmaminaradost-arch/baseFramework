@@ -1,8 +1,7 @@
 package api.booking;
+
 import base.BaseTest;
 import dto.responses.BookingSuccessResponse;
-import io.restassured.common.mapper.TypeRef;
-import io.restassured.specification.RequestSpecification;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,22 +9,17 @@ import steps.GetBookingStep;
 
 import java.util.List;
 
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.requestSpecification;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-class GetBookingTest extends BaseTest {
+public class GetBookingByIdTest extends BaseTest {
 
     private GetBookingStep getBookingStep;
 
     @BeforeEach
-    void initSteps(){
+    void initSteps() {
         getBookingStep = new GetBookingStep(requestSpec);
     }
 
     @Test
-    void getBookingList() {
+    void getBookingById() {
 
         List<BookingSuccessResponse> booking = getBookingStep.getBookingList();
 
@@ -36,6 +30,6 @@ class GetBookingTest extends BaseTest {
                     .contains(1);
         });
 
-
     }
+
 }
