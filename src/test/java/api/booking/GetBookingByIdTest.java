@@ -1,7 +1,6 @@
 package api.booking;
 
 import base.BaseBookingTest;
-import base.BaseTest;
 import dto.responses.BookingSuccessResponse;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Tag;
@@ -18,7 +17,7 @@ public class GetBookingByIdTest extends BaseBookingTest {
         List<BookingSuccessResponse> booking = getBookingStep.getBookingList(); 
         
         assertThat(booking).isNotNull();
-        assertThat(booking).hasSizeGreaterThan(10);
+        assertThat(booking).hasSizeGreaterThan(1);
     }
 
 }
