@@ -17,7 +17,7 @@ public class GetBookingByIdTest extends BaseBookingTest {
         List<BookingSuccessResponse> booking = getBookingStep.getBookingList(); 
         
         assertThat(booking).isNotNull();
-        assertThat(booking).hasSizeGreaterThan(1);
+        assertThat(booking).hasSizeGreaterThan(2);
     }
 
 }
