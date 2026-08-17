@@ -4,6 +4,7 @@ import dto.responses.AuthSuccessResponse;
 import io.restassured.response.Response;
 import dto.requests.AuthRequest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Tag;
 
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,6 +15,7 @@ class GetTokenTest extends BaseTest {
     // Не надо вызывать сетап тестов. JUnit делает это в аннотации
 
     @Test
+    @Tag("Auth")
     void getUserTokenByCorrectCred() {
 
         AuthRequest authRequest = AuthRequest.builder()

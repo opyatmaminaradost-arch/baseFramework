@@ -1,32 +1,18 @@
 package api.booking;
 
+import base.BaseBookingTest;
 import base.BaseTest;
 import dto.requests.*;
 import dto.responses.*;
-import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import steps.CreateBookingStep;
-import net.datafaker.Faker;
-import steps.GetBookingByIdStep;
+import org.junit.jupiter.api.Tag;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PostBookingTest extends BaseTest {
-
-    private CreateBookingStep createBookingStep;
-    private GetBookingByIdStep getBookingByIdStep;
-
-    Faker faker = new Faker();
-
-
-    @BeforeEach
-    void initSteps(){
-        createBookingStep = new CreateBookingStep(requestSpec);
-        getBookingByIdStep = new GetBookingByIdStep(requestSpec);
-    }
+public class PostBookingTest extends BaseBookingTest {
 
     @Test
+    @Tag("booking") 
     void postBooking() {
 
         CreateBookingRequest request = new CreateBookingRequest(
@@ -48,6 +34,5 @@ public class PostBookingTest extends BaseTest {
         CreateBookingRequest actualBooking = getBookingByIdStep.getBookingById(bookingId);
 
         assertThat(actualBooking).isEqualTo(request);
-
     }
 }

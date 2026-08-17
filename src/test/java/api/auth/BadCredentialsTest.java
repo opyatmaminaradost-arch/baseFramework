@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BadCredentialsTest extends BaseTest {
 
     @Test
+    @Tag("Auth") 
     void getErrorWithIncorrectUserCred() {
 
         AuthRequest authRequest = AuthRequest.builder()

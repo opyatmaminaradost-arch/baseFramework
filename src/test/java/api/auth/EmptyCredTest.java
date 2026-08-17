@@ -5,6 +5,8 @@ import dto.responses.AuthFailResponse;
 import io.restassured.response.Response;
 import dto.requests.AuthRequest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Tag;
+
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class EmptyCredTest extends BaseTest {
 
     @Test
+    @Tag("Auth")
     void getErrorWithIncorrectUserPwd() {
 
         AuthRequest authRequest = AuthRequest.builder()

@@ -1,30 +1,17 @@
 package api.booking;
+import base.BaseBookingTest;
 import base.BaseTest;
 import dto.responses.BookingSuccessResponse;
-import io.restassured.common.mapper.TypeRef;
-import io.restassured.specification.RequestSpecification;
 import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import steps.GetBookingStep;
+import org.junit.jupiter.api.Tag;
 
 import java.util.List;
 
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.requestSpecification;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-class GetBookingTest extends BaseTest {
-
-    private GetBookingStep getBookingStep;
-
-    @BeforeEach
-    void initSteps(){
-        getBookingStep = new GetBookingStep(requestSpec);
-    }
+class GetBookingTest extends BaseBookingTest { 
 
     @Test
+    @Tag("booking") 
     void getBookingList() {
 
         List<BookingSuccessResponse> booking = getBookingStep.getBookingList();
@@ -33,9 +20,8 @@ class GetBookingTest extends BaseTest {
 
             softly.assertThat(booking)
                     .extracting(BookingSuccessResponse::bookingId)
-                    .contains(1);
+                    .contains(2);
         });
-
 
     }
 }
